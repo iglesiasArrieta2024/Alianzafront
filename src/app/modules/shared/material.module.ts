@@ -43,8 +43,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 
+
 @NgModule({
   exports: [
+    CdkTreeModule,
     A11yModule,
     ClipboardModule,
     CdkStepperModule,
@@ -77,9 +79,22 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatTreeModule,
     MatSidenavModule,
     PortalModule,
+    MatInputModule,
+    MatNativeDateModule,
+    OverlayModule,
+    MatTabsModule,
+    CdkTableModule,
+    ScrollingModule,
+    MatSnackBarModule,
+    MatRippleModule,
+    MatStepperModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatDialogModule
     
   ],
   imports: [
+    CdkTreeModule,
     A11yModule,
     ClipboardModule,
     CdkStepperModule,
@@ -112,6 +127,19 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatTreeModule,
     MatSidenavModule,
     PortalModule,
+    MatInputModule,
+    MatNativeDateModule,
+    OverlayModule,
+    MatTabsModule,
+    CdkTableModule,
+    ScrollingModule,
+    MatSnackBarModule,
+    MatRippleModule,
+    MatStepperModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatDialogModule,
+   
     
   ]
 })
