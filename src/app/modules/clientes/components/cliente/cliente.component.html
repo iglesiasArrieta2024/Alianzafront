@@ -2,27 +2,91 @@
     <h2 class="alinear">Administracion de Clientes</h2>
     <mat-card-header>
         <div>
-            <mat-form-field hintLabel="Busque categoría" appearance="fill">
+            <mat-form-field hintLabel="Busque Cliente" appearance="fill">
 
-                <mat-label>Buscar Categoría</mat-label>
+                <mat-label>Buscar Cliente</mat-label>
                 <input matInput #input >
             </mat-form-field>
         </div>
     </mat-card-header>
-    
+
     <mat-card-header>
-        <div class="right" >
-            <ul >
+
+        <div class="right">
+            <ul>
                 <li>
-                    <button mat-raised-button color="primary">Agregar Cliente</button>
+                    <button mat-raised-button color="primary">Agregar Categoría</button>
                 </li>
             </ul>
         </div>
+
     </mat-card-header>
-     
+
+    <div mat-card-image></div>
+
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-cell">
+
+            <!-- id column-->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>id</th>
+                <td mat-cell *matCellDef="let element"> {{ element.id}}</td>
+            </ng-container>
+            <ng-container matColumnDef="shared_key">
+                <th mat-header-cell *matHeaderCellDef> USUARIO </th>
+                <td mat-cell *matCellDef="let element"> {{ element.shared_key}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="business_id">
+                <th mat-header-cell *matHeaderCellDef>nombre apellido</th>
+                <td mat-cell *matCellDef="let element"> {{ element.business_id}}</td>
+            </ng-container>
+          
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef>Email</th>
+                <td mat-cell *matCellDef="let element"> {{ element.email}}</td>
+            </ng-container>
+             
+
+            <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef> telefono </th>
+                <td mat-cell *matCellDef="let element"> {{ element.phone}}</td>
+            </ng-container>
+
+            <!-- description column -->
+            <ng-container matColumnDef="data_added">
+                <th mat-header-cell *matHeaderCellDef> fecha registro </th>
+                <td mat-cell *matCellDef="let element"> {{ element.data_added}}</td>
+            </ng-container>
+
+           
+
+           
+
+            
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                <td mat-cell *matCellDef="let element; let i=index;">
+
+                    <button mat-icon-button color="accent">
+                        <mat-icon aria-label="Edit">edit</mat-icon>
+                    </button>
+
+                    <button mat-icon-button color="accent">
+                        <mat-icon aria-label="Delete">delete</mat-icon>
+                    </button>
+                </td>
+
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+        </table>
+
+
+    </mat-card-content>
+
+
 </mat-card>
-
-<div mat-card-image></div>
-
-
-

@@ -90,7 +90,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatStepperModule,
     MatAutocompleteModule,
     MatDatepickerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
     
   ],
   imports: [
@@ -139,6 +140,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatAutocompleteModule,
     MatDatepickerModule,
     MatDialogModule,
+    MatTableModule
    
     
   ]
