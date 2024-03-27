@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ClienteservicesService } from 'src/app/modules/shared/services/clienteservices.service';
-
+import { NewClienteComponent } from '../new-cliente/new-cliente.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 @Component({
   selector: 'app-cliente',
   templateUrl:'./cliente.component.html',
@@ -9,13 +10,20 @@ import { ClienteservicesService } from 'src/app/modules/shared/services/clientes
 })
 export class ClienteComponent implements OnInit {
 
-  constructor(private clienteservice: ClienteservicesService) { }
-   
+  data_added: Date = new Date();
+
+  constructor(private clienteService: ClienteservicesService,private dialog: MatDialog) { 
+    
+  
+
+  }
+ // private snackBar = inject(MatSnackBar);
+  //public dialog = inject(MatDialog);
   ngOnInit(): void {
     this.getClientes();
   }
    getClientes():void{
-      this.clienteservice.GetClientes().subscribe((data:any)=>{
+      this.clienteService.GetClientes().subscribe((data:any)=>{
             console.log("clientes",data);
             this.processClient(data);
       },(error:any)=>{
@@ -33,6 +41,20 @@ export class ClienteComponent implements OnInit {
         this.dataSource= new MatTableDataSource<ClienteElement>(dataClient);
       }
    }
+
+   openDialog() {
+    const dialogRef = this.dialog.open( NewClienteComponent, {
+      width: '450px',
+      
+    });
+
+    dialogRef.afterClosed().subscribe((result:any) => {
+     
+    });
+   }
+
+
+  
 
  
   //displayedColumns: string[] = ['id', 'email', 'business_id','data_added' ,'phone','shared_key','action'];

@@ -21,4 +21,9 @@ export class ClienteservicesService {
     const endpoint = `${base_url}clientes`;
     return this.http.get(endpoint);
   }
+
+  saveCliente(body: any){
+    const endpoint = `${base_url}clientes`;
+    return this.http.post(endpoint, body)
+  }
 }
